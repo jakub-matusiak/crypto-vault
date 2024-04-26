@@ -27,10 +27,24 @@ cd crypto-vault
 3. Run this command:
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
 4. Open [http://localhost](http://localhost) with your browser to see the result.
+
+5. To stop the app, run one of these commands:
+
+```bash
+docker compose stop
+```
+
+* to stop containers or
+
+```bash
+docker compose down
+```
+
+* to stop and remove containers.
 
 ## Learn More
 

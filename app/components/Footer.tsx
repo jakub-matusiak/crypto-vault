@@ -4,11 +4,11 @@ const date = new Date;
 
 export default function Footer() {
   return (
-    <footer className='w-full border-t border-gray-100 px-4 md:px-16 py-4'>
-      <div className='flex justify-between items-center max-w-7xl w-full mx-auto'>
+    <footer className="footer items-center p-4">
+      <aside className="items-center grid-flow-col">
         <Logo width={92} height={22} />
-        <p className='text-xs'>Copyright &copy; { date.getFullYear() }</p>
-      </div>
+        <p>Copyright &copy; { date.getFullYear() } - All right reserved</p>
+      </aside>
     </footer>
   )
 }

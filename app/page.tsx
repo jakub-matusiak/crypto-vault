@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 type AssetType = {
   id: string,
   rank: string,
@@ -41,7 +43,7 @@ export default async function Home() {
           {data.map((asset: AssetType) => (
             <tr key={asset.id}>
               <td>{ asset.rank }</td>
-              <td>{ asset.name }<br/>{ asset.symbol }</td>
+              <td><Link href={ `/assets/${asset.id}` } className='link link-hover'>{ asset.name }</Link><br/>{ asset.symbol }</td>
               <td>{ format(asset.priceUsd) }</td>
               <td className='hidden md:table-cell'>{ format(asset.marketCapUsd) }</td>
               <td className='hidden xl:table-cell'>{ format(asset.vwap24Hr) }</td>

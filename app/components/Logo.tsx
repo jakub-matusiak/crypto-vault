@@ -11,5 +11,5 @@ export default function Logo({ width, height }: LogoType) {
     <Link href='/'>
       <Image src='/logo.svg' className='inline' width={width} height={height} alt='' />
     </Link>
-  )
+  );
 }

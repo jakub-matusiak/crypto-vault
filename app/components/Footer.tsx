@@ -10,5 +10,5 @@ export default function Footer() {
         <p>Copyright &copy; { date.getFullYear() } - All right reserved</p>
       </aside>
     </footer>
-  )
+  );
 }

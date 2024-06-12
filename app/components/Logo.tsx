@@ -9,7 +9,7 @@ type LogoType = {
 export default function Logo({ width, height }: LogoType) {
   return (
     <Link href='/'>
-      <Image src="/logo.svg" className='inline' width={width} height={height} alt="" />
+      <Image src='/logo.svg' className='inline' width={width} height={height} alt='' />
     </Link>
   )
 }

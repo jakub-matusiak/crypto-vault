@@ -14,6 +14,7 @@ const config: Config = {
   ],
   daisyui: {
     themes: ['light'],
+    base: false,
   }
 };
 export default config;

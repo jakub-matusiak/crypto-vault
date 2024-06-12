@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import Hero from './components/Hero';
+
 type AssetType = {
   id: string,
   rank: string,
@@ -26,6 +28,7 @@ export default async function Home() {
 
   return (
     <main className='py-4'>
+      <Hero />
       <table className='table table-xs sm:table-sm lg:table-md'>
         <thead>
           <tr>

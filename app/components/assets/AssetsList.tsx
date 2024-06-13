@@ -32,7 +32,7 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
     setError(null);
 
     try {
-      const response = await fetch(`https://api.coincap.io/v2/assets?&offset=${page * 100}`);
+      const response = await fetch(`https://api.coincap.io/v2/assets?offset=${page * 100}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch more assets!');

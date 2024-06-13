@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
-type AssetsItemType = {
-  key: string,
+type AssetsItemProps = {
   id: string,
   rank: string,
   symbol: string,
@@ -14,13 +13,13 @@ type AssetsItemType = {
   vwap24Hr: string,
 }
 
-export default function AssetsItem({ key, id, rank, symbol, name, supply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr }: AssetsItemType) {
+export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr }: AssetsItemProps) {
   function format(number: string) {
     return Number.parseFloat(number).toFixed(2);
   }
 
   return (
-    <tr key={key}>
+    <tr>
       <td>{ rank }</td>
       <td><Link href={ `/assets/${id}` } className='link link-hover'>{ name }</Link><br/>{ symbol }</td>
       <td>{ format(priceUsd) }</td>

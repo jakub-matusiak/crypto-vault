@@ -18,7 +18,7 @@ export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUs
     const parsedValue = type === 'percent' ? parseFloat(value) / 100 : parseFloat(value);
 
     const formattedValue = parsedValue.toLocaleString('en-US', {
-      style: type,
+      style: type === 'number' ? undefined : type,
       currency: type === 'currency' ? 'USD' : undefined,
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
@@ -34,7 +34,7 @@ export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUs
       <td>{ formatValue(priceUsd, 'currency') }</td>
       <td className='hidden md:table-cell'>{ formatValue(marketCapUsd, 'currency') }</td>
       <td className='hidden xl:table-cell'>{ formatValue(vwap24Hr, 'currency') }</td>
-      <td className='hidden lg:table-cell'>{ formatValue(supply, 'currency') }</td>
+      <td className='hidden lg:table-cell'>{ formatValue(supply, 'number') }</td>
       <td className='hidden md:table-cell'>{ formatValue(volumeUsd24Hr, 'currency') }</td>
       <td>{ formatValue(changePercent24Hr, 'percent') }</td>
     </tr>

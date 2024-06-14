@@ -2,20 +2,8 @@
 
 import { useState } from 'react';
 
-import AssetsItem from './AssetsItem';
-
-type AssetType = {
-  id: string,
-  rank: string,
-  symbol: string,
-  name: string,
-  supply: string,
-  marketCapUsd: string,
-  volumeUsd24Hr: string,
-  priceUsd: string,
-  changePercent24Hr: string,
-  vwap24Hr: string,
-}
+import { AssetType } from '@/app/utils/types';
+import AssetsItem from '@/app/components/Assets/AssetsItem';
 
 type AssetsListProps = {
   initialAssets: AssetType[];

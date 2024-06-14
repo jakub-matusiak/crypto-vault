@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 import { AssetType } from '@/app/utils/types';
 import { formatCurrency, formatPercentage, formatNumber } from '@/app/utils/format';
@@ -21,12 +21,7 @@ export default async function Asset({ params }: { params: { assetId: string }}) 
 
   return (
     <main className='p-2'>
-      <div className='text-sm breadcrumbs mb-1'>
-        <ul>
-          <li><Link href='/'>Home</Link></li>
-          <li>{ name } Price</li>
-        </ul>
-      </div>
+      <Breadcrumbs />
       <aside className='bg-gray-100 p-4 rounded-md'>
         <div className='flex items-center mb-2'>
           <h1 className='text-xl md:text-2xl'><strong>{ name }</strong> { symbol }</h1>

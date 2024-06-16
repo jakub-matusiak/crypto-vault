@@ -20,7 +20,7 @@ export function formatPercentage(percentage: string) {
     maximumFractionDigits: 2,
   });
 
-  return formattedPercentage;
+  return parsedPercentage > 0 ? `+${formattedPercentage}` : formattedPercentage;
 }
 
 export function formatNumber(number: string) {

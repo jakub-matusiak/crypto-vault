@@ -1,4 +1,6 @@
 export function formatCurrency(currency: string) {
+  if (!currency) return '-';
+
   const parsedCurrency = parseFloat(currency);
 
   const formattedCurrency = parsedCurrency.toLocaleString('en-US', {
@@ -12,6 +14,8 @@ export function formatCurrency(currency: string) {
 }
 
 export function formatPercentage(percentage: string, plusSign = false) {
+  if (!percentage) return '-';
+
   const parsedPercentage = parseFloat(percentage) / 100;
 
   const formattedPercentage = parsedPercentage.toLocaleString('en-US', {
@@ -24,6 +28,8 @@ export function formatPercentage(percentage: string, plusSign = false) {
 }
 
 export function formatNumber(number: string) {
+  if (!number) return '-';
+
   const parsedNumber = parseFloat(number);
 
   const formattedNumber = parsedNumber.toLocaleString('en-US', {

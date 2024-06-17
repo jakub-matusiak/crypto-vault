@@ -25,7 +25,7 @@ export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUs
       <td className='hidden xl:table-cell'>{ formatCurrency(vwap24Hr) }</td>
       <td className='hidden lg:table-cell'>{ formatNumber(supply) }</td>
       <td className='hidden md:table-cell'>{ formatCurrency(volumeUsd24Hr) }</td>
-      <td>{ formatPercentage(changePercent24Hr, true) }</td>
+      <td className={`${ +changePercent24Hr < 0 ? ' text-red-600' : ' text-green-600' }`}>{ formatPercentage(changePercent24Hr, true) }</td>
     </tr>
   );
 }

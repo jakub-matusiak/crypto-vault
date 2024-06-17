@@ -22,14 +22,14 @@ export default async function Price({ assetId }: SummaryProps) {
   const { rank, symbol, name, supply, maxSupply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr, explorer } = summary;
 
   return (
-    <aside className='bg-gray-100 p-4 rounded-md'>
+    <aside className='bg-gray-100 p-4 rounded-md mb-8'>
       <div className='flex items-center mb-2'>
         <h1 className='text-xl md:text-2xl'><strong>{ name }</strong> { symbol }</h1>
         <div className='badge badge-md badge-neutral ml-4'>#{ rank }</div>
       </div>
       <div className="flex items-center mb-4">
         <h2 className="text-3xl md:text-5xl font-bold">{ formatCurrency(priceUsd) }</h2>
-        <p className={`text-2xl md:text-3xl font-bold ml-2${ +changePercent24Hr < 0 ? ' text-red-600' : ' text-green-600' }`}>{ formatPercentage(changePercent24Hr) }</p>
+        <p className={`text-2xl md:text-3xl font-bold ml-2${ +changePercent24Hr < 0 ? ' text-red-600' : ' text-green-600' }`}>{ formatPercentage(changePercent24Hr, true) }</p>
       </div>
       <table className='table w-auto'>
         <tbody>

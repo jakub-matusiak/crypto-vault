@@ -11,7 +11,7 @@ export function formatCurrency(currency: string) {
   return formattedCurrency;
 }
 
-export function formatPercentage(percentage: string) {
+export function formatPercentage(percentage: string, plusSign = false) {
   const parsedPercentage = parseFloat(percentage) / 100;
 
   const formattedPercentage = parsedPercentage.toLocaleString('en-US', {
@@ -20,7 +20,7 @@ export function formatPercentage(percentage: string) {
     maximumFractionDigits: 2,
   });
 
-  return parsedPercentage > 0 ? `+${formattedPercentage}` : formattedPercentage;
+  return plusSign && parsedPercentage > 0 ? `+${formattedPercentage}` : formattedPercentage;
 }
 
 export function formatNumber(number: string) {

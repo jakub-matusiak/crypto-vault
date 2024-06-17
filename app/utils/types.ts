@@ -12,3 +12,14 @@ export type AssetType = {
   vwap24Hr: string,
   explorer: string,
 }
+
+export type MarketType = {
+  exchangeId: string,
+  baseId: string,
+  quoteId: string,
+  baseSymbol: string,
+  quoteSymbol: string,
+  volumeUsd24Hr: string,
+  priceUsd: string,
+  volumePercent: string,
+}

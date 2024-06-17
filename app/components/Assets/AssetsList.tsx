@@ -45,9 +45,9 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
     }
   }
 
-  const assetsItems = assets.map((asset: AssetType) => (
+  const assetsItems = assets.map((asset: AssetType, index: number) => (
     <AssetsItem
-      key={asset.id}
+      key={index}
       id={asset.id}
       rank={asset.rank}
       symbol={asset.symbol}

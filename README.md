@@ -1,6 +1,16 @@
 # Crypto Vault
 
-The best cryptocurrency portfolio tracker. Stay up to date with your investments, holdings, profits and losses. 
+Stay on top of your investments with my Cryptocurrency Portfolio Tracker. Effortlessly manage and monitor all your crypto assets in one place. Track real-time prices, analyze performance, and make informed decisions with advanced analytics. Keep your portfolio secure and up-to-date with our user-friendly interface and robust features. Perfect for both beginners and experienced traders.
+
+## Technologies
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* daisyUI
+* PostgreSQL
+* Prisma
+* Docker
 
 ## Getting Started
 
@@ -57,3 +67,7 @@ services:
     volumes:
       - ./:/app
 ```
+
+## Project status
+
+Still in development.

@@ -19,7 +19,7 @@ export default function Breadcrumbs() {
           return (
             <React.Fragment key={index}>
               <li>
-                {index + 1 === pathNames.length ? <span>{upperCaseLink}</span> : <Link href={href}>{upperCaseLink}</Link> }
+                {index + 1 === pathNames.length ? <span className='font-semibold'>{upperCaseLink}</span> : <Link href={href}>{upperCaseLink}</Link> }
               </li>
             </React.Fragment>
           );

@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${raleway.className} container mx-auto px-2 md:px-8`}>
+      <body className={`${raleway.className} flex flex-col container mx-auto px-2 md:px-8 min-h-svh`}>
         <Header />
 
         {children}

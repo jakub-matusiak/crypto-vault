@@ -11,8 +11,8 @@ export default function Header() {
         </div>
         <div className='flex-none hidden sm:block'>
           <ul className='menu menu-horizontal px-1'>
-            <li><Link href='/' className='btn btn-sm btn-outline mx-1'>Login</Link></li>
-            <li><Link href='/' className='btn btn-sm btn-primary mx-1'>Sign Up</Link></li>
+            <li><Link href='/login' className='btn btn-sm btn-outline mx-1'>Login</Link></li>
+            <li><Link href='/register' className='btn btn-sm btn-primary mx-1'>Register</Link></li>
           </ul>
         </div>
         <div className='flex-none sm:hidden'>

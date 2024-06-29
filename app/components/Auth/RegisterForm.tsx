@@ -1,6 +1,7 @@
 'use client';
 
 import { useFormState } from 'react-dom';
+
 import { register } from '@/app/utils/auth/actions';
 import RegisterButton from '@/app/components/Auth/RegisterButton';
 
@@ -37,8 +38,8 @@ export function RegisterForm() {
         </svg>
         <input type='password' name='confirmPassword' className='grow' placeholder='Confirm Password' />
       </label>
-      {state?.errors?.confirmPassword && <p className='w-full text-sm text-red-500 px-1'>{ state.errors.confirmPassword }</p>}
-      {state?.message && <p className='text-red-500 mt-4'>{ state.message }</p>}
+      {state?.errors?.confirmPassword && <p className='w-full text-sm text-red-500 px-1'>{state.errors.confirmPassword}</p>}
+      {state?.message && <p className='text-red-500 mt-4'>{state.message}</p>}
       <RegisterButton />
     </form>
   );

@@ -18,14 +18,14 @@ type AssetsItemProps = {
 export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr }: AssetsItemProps) {
   return (
     <tr>
-      <td>{ rank }</td>
-      <td><Link href={ `/assets/${id}` } className='link link-hover font-semibold'>{ name }</Link><br/>{ symbol }</td>
-      <td>{ formatCurrency(priceUsd) }</td>
-      <td className='hidden md:table-cell'>{ formatCurrency(marketCapUsd) }</td>
-      <td className='hidden xl:table-cell'>{ formatCurrency(vwap24Hr) }</td>
-      <td className='hidden lg:table-cell'>{ formatNumber(supply) }</td>
-      <td className='hidden md:table-cell'>{ formatCurrency(volumeUsd24Hr) }</td>
-      <td className={`font-semibold ${ +changePercent24Hr < 0 ? ' text-red-600' : ' text-green-600' }`}>{ formatPercentage(changePercent24Hr, true) }</td>
+      <td>{rank}</td>
+      <td><Link href={`/assets/${id}`} className='link link-hover font-semibold'>{name}</Link><br/>{symbol}</td>
+      <td>{formatCurrency(priceUsd)}</td>
+      <td className='hidden md:table-cell'>{formatCurrency(marketCapUsd)}</td>
+      <td className='hidden xl:table-cell'>{formatCurrency(vwap24Hr)}</td>
+      <td className='hidden lg:table-cell'>{formatNumber(supply)}</td>
+      <td className='hidden md:table-cell'>{formatCurrency(volumeUsd24Hr)}</td>
+      <td className={`font-semibold${+changePercent24Hr < 0 ? ' text-red-600' : ' text-green-600'}`}>{formatPercentage(changePercent24Hr, true)}</td>
     </tr>
   );
 }

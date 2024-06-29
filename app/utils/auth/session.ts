@@ -1,11 +1,11 @@
 import 'server-only';
 
+import type { SessionPayload } from '@/app/utils/auth/definitions';
+
 import { SignJWT, jwtVerify } from 'jose';
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-
-import type { SessionPayload } from '@/app/utils/auth/definitions';
 
 const secretKey = process.env.SECRET;
 const key = new TextEncoder().encode(secretKey);

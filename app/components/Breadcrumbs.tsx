@@ -18,9 +18,7 @@ export default function Breadcrumbs() {
           let upperCaseLink = link[0].toUpperCase() + link.slice(1, link.length);
           return (
             <React.Fragment key={index}>
-              <li>
-                {index + 1 === pathNames.length ? <span className='font-semibold'>{upperCaseLink}</span> : <Link href={href}>{upperCaseLink}</Link> }
-              </li>
+              <li>{index + 1 === pathNames.length ? <span className='font-semibold'>{upperCaseLink}</span> : <Link href={href}>{upperCaseLink}</Link>}</li>
             </React.Fragment>
           );
         })}

@@ -1,4 +1,5 @@
-import { MarketType } from '@/app/utils/types';
+import type { MarketType } from '@/app/utils/types';
+
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import Summary from '@/app/components/AssetDetails/Summary';
 import MarketsList from '@/app/components/AssetDetails/Markets/MarketsList';

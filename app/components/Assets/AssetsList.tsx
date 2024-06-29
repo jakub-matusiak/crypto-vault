@@ -1,8 +1,9 @@
 'use client';
 
+import type { AssetType } from '@/app/utils/types';
+
 import { useState } from 'react';
 
-import { AssetType } from '@/app/utils/types';
 import AssetsItem from '@/app/components/Assets/AssetsItem';
 
 type AssetsListProps = {
@@ -22,15 +23,11 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
     try {
       const response = await fetch(`https://api.coincap.io/v2/assets?offset=${page * 100}`);
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch more assets!');
-      }
+      if (!response.ok) throw new Error('Failed to fetch more assets!');
 
       const data = await response.json();
 
-      if (!data.data.length) {
-        setError('No more assets!');
-      }
+      if (!data.data.length) setError('No more assets!');
 
       setAssets((prevAssets) => [...prevAssets, ...data.data]);
       setPage((prevPage) => prevPage + 1);
@@ -77,22 +74,22 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
           </tr>
         </thead>
         <tbody>
-          { assetsItems }
+          {assetsItems}
         </tbody>
       </table>
-      { loading && (
+      {loading && (
         <div className='flex justify-center pt-2'>
           <span className='loading loading-dots loading-md text-primary'></span>
         </div>
       )}
-      { error && (
+      {error && (
         <div className='flex justify-center pt-2'>
-          <p>Error: {error}</p>
+          <p className='text-red-500'>Error: {error}</p>
         </div>
       )}
       <div className='flex justify-center my-6'>
-        <button className='btn btn-primary' onClick={getMoreAssets} disabled={loading}>
-          { loading ? 'Loading...' : 'Load More' }
+        <button className='btn btn-primary' aria-disabled={loading} disabled={loading} onClick={getMoreAssets}>
+          {loading ? 'Loading...' : 'Load More'}
         </button>
       </div>
     </>

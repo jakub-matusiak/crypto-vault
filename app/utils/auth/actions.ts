@@ -1,12 +1,12 @@
 'use server';
 
+import type { FormState } from '@/app/utils/auth/definitions';
+
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 
 import { RegisterFormSchema, LoginFormSchema } from '@/app/utils/auth/definitions';
 import { createSession, deleteSession } from '@/app/utils/auth/session';
-
-import type { FormState } from '@/app/utils/auth/definitions';
 
 const prisma = new PrismaClient;
 

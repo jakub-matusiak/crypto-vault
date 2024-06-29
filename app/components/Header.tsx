@@ -1,8 +1,14 @@
 import Link from 'next/link';
+import { cookies } from 'next/headers';
 
+import { decrypt } from '@/app/utils/auth/session';
+import LogoutButton from '@/app/components/Auth/LogoutButton';
 import Logo from '@/app/components/Logo';
 
-export default function Header() {
+export default async function Header() {
+  const cookie = cookies().get('session')?.value;
+  const session = await decrypt(cookie);
+
   return (
     <header>
       <div className='navbar'>
@@ -11,8 +17,14 @@ export default function Header() {
         </div>
         <div className='flex-none hidden sm:block'>
           <ul className='menu menu-horizontal px-1'>
-            <li><Link href='/login' className='btn btn-sm btn-outline mx-1'>Login</Link></li>
-            <li><Link href='/register' className='btn btn-sm btn-primary mx-1'>Register</Link></li>
+            {session ? (
+              <li><LogoutButton /></li>
+            ) : (
+              <>
+                <li><Link href='/login' className='btn btn-sm btn-outline mx-1'>Login</Link></li>
+                <li><Link href='/register' className='btn btn-sm btn-primary mx-1'>Register</Link></li>
+              </>
+            )}
           </ul>
         </div>
         <div className='flex-none sm:hidden'>

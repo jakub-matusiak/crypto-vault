@@ -4,13 +4,15 @@ Stay on top of your investments with my Cryptocurrency Portfolio Tracker. Effort
 
 ## Technologies
 
-* Next.js
-* TypeScript
-* Tailwind CSS
-* daisyUI
-* PostgreSQL
-* Prisma
-* Docker
+* **Next.js**
+* **TypeScript**
+* **Tailwind CSS**
+* **daisyUI**
+* **Prisma**
+* **bcrypt**
+* **zod**
+* **jose**
+* **Docker** with **nginx**, **PostgreSQL** and **Adminer**
 
 ## Getting Started
 
@@ -18,7 +20,7 @@ This instruction will get you a copy of the project up and running on your local
 
 ### Prerequisites
 
-You need to have Docker installed on your machine. To install it, follow the instructions on [Docker official website](https://docs.docker.com/).
+You need to have Docker and Node.js installed on your machine. To install it, follow the instructions on [Docker](https://docs.docker.com/) and [Node.js](https://nodejs.org/) official websites.
 
 ### Installing
 
@@ -34,15 +36,21 @@ git clone https://github.com/jakub-matusiak/crypto-vault
 cd crypto-vault
 ```
 
-3. Run this command:
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run this command:
 
 ```bash
 docker compose up -d
 ```
 
-4. Open [http://localhost](http://localhost) with your browser to see the result.
+5. Open [http://localhost](http://localhost) with your browser to see the result.
 
-5. To stop the app, run one of these commands:
+6. To stop the app, run one of these commands:
 
 ```bash
 docker compose stop
@@ -55,6 +63,14 @@ docker compose down
 ```
 
 * to stop and remove containers.
+
+### Database Migrations
+
+If you already have a running project, you need to execute database migrations by running this command:
+
+```bash
+docker exec -it nextjs bash -c "npx prisma db push"
+```
 
 ## Learn More
 

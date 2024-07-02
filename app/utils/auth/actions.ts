@@ -22,7 +22,7 @@ export async function register(state: FormState, formData: FormData) {
   const { email, password } = validatedFields.data;
 
   const isUserExists = await prisma.user.findUnique({
-    where: { email }
+    where: { email: email.toLowerCase() }
   });
 
   if (isUserExists) return { message: 'Email already exists, please use a different email or login.' };
@@ -31,7 +31,7 @@ export async function register(state: FormState, formData: FormData) {
 
   const user = await prisma.user.create({
     data: {
-      email,
+      email: email.toLowerCase(),
       password: hashedPassword,
     },
   });
@@ -54,7 +54,7 @@ export async function login(state: FormState, formData: FormData): Promise<FormS
   const { email, password } = validatedFields.data;
 
   const user = await prisma.user.findUnique({
-    where: { email }
+    where: { email: email.toLowerCase() }
   });
 
   if (!user) return { message: 'User not found.' };

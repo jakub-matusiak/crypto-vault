@@ -5,9 +5,11 @@ services:
       context: .
       dockerfile: ./docker/nextjs/Dockerfile
     container_name: nextjs
+    ports:
+      - 3000:3000
     restart: unless-stopped
     depends_on:
-      - postgresql
+      - postgres
     networks:
       - crypto-vault
 
@@ -21,16 +23,13 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - nextjs
-      - postgresql
-      - adminer
+      - postgres
     networks:
       - crypto-vault
 
-  postgresql:
+  postgres:
     image: postgres:14
-    container_name: postgresql
-    ports:
-      - 5432:5432
+    container_name: postgres
     restart: unless-stopped
     volumes:
       - ./docker/postgres:/var/lib/postgresql/data
@@ -38,19 +37,6 @@ services:
       POSTGRES_DB: database
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
-    networks:
-      - crypto-vault
-
-  adminer:
-    image: adminer
-    container_name: adminer
-    ports:
-      - 8080:8080
-    restart: unless-stopped
-    depends_on:
-      - postgresql
-    environment:
-      ADMINER_DEFAULT_SERVER: postgresql
     networks:
       - crypto-vault
 

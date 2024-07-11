@@ -69,7 +69,7 @@ docker compose down
 If you already have a running project, you need to execute database migrations by running this command:
 
 ```bash
-docker exec -it nextjs bash -c "npx prisma db push"
+docker compose exec nextjs npx prisma db push
 ```
 
 ## Learn More

@@ -22,15 +22,15 @@ export default function Markets({ assetId, initialMarkets }: MarketsProps) {
     setError(null);
 
     try {
-      const response = await fetch(`https://api.coincap.io/v2/assets/${assetId}/markets?limit=20&offset=${page * 20}`);
+      const response = await fetch(`/api/markets/${assetId}?offset=${page * 20}`, { next: { revalidate: 30 } });
 
       if (!response.ok) throw new Error('Failed to fetch more markets!');
 
       const data = await response.json();
 
-      if (!data.data.length) setError('No more markets!');
+      if (!data.length) setError('No more markets!');
 
-      setMarkets((prevMarkets) => [...prevMarkets, ...data.data]);
+      setMarkets((prevMarkets) => [...prevMarkets, ...data]);
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
       if (error instanceof Error) {

@@ -5,13 +5,13 @@ import AssetsList from '@/app/components/Assets/AssetsList';
 
 export default async function Home() {
   async function getInitialAssets() {
-    const response = await fetch('https://api.coincap.io/v2/assets');
+    const response = await fetch(`${process.env.API_BASE_URL}/api/assets`, { next: { revalidate: 30 } });
   
     if (!response.ok) throw new Error('Failed to fetch initial assets!');
   
     const data = await response.json();
   
-    return data.data;
+    return data;
   }
 
   const initialAssets: AssetType[] = await getInitialAssets();

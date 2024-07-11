@@ -8,13 +8,13 @@ type SummaryProps = {
 
 export default async function Price({ assetId }: SummaryProps) {
   async function getSummary() {
-    const response = await fetch(`https://api.coincap.io/v2/assets/${assetId}`);
+    const response = await fetch(`${process.env.API_BASE_URL}/api/summary/${assetId}`, { next: { revalidate: 30 } });
 
     if (!response.ok) throw new Error('Failed to get summary!');
 
     const data = await response.json();
 
-    return data.data;
+    return data;
   }
 
   const summary: AssetType = await getSummary();

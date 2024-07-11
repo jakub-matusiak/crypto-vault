@@ -6,15 +6,14 @@ import MarketsList from '@/app/components/AssetDetails/Markets/MarketsList';
 
 export default async function AssetDetails({ params }: { params: { assetId: string }}) {
   async function getInitialMarkets() {
-    const response = await fetch(`https://api.coincap.io/v2/assets/${params.assetId}/markets?limit=20`);
+    const { assetId } = params;
+    const response = await fetch(`${process.env.API_BASE_URL}/api/markets/${assetId}`, { next: { revalidate: 30 } });
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch initial assets!');
-    }
+    if (!response.ok) throw new Error('Failed to fetch initial assets!');
 
     const data = await response.json();
 
-    return data.data;
+    return data;
   }
 
   const initialMarkets: MarketType[] = await getInitialMarkets();

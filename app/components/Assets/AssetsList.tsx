@@ -21,15 +21,15 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
     setError(null);
 
     try {
-      const response = await fetch(`https://api.coincap.io/v2/assets?offset=${page * 100}`);
+      const response = await fetch(`/api/assets?offset=${page * 100}`, { next: { revalidate: 30 } });
 
       if (!response.ok) throw new Error('Failed to fetch more assets!');
 
       const data = await response.json();
 
-      if (!data.data.length) setError('No more assets!');
+      if (!data.length) setError('No more assets!');
 
-      setAssets((prevAssets) => [...prevAssets, ...data.data]);
+      setAssets((prevAssets) => [...prevAssets, ...data]);
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
       if (error instanceof Error) {

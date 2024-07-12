@@ -18,7 +18,10 @@ export default async function Header() {
         <div className='flex-none hidden sm:block'>
           <ul className='menu menu-horizontal px-1'>
             {session ? (
-              <li><LogoutButton /></li>
+              <>
+                <li><Link href='/portfolio' className='link link-hover mx-1'>Portfolio</Link></li>
+                <li><LogoutButton /></li>
+              </>
             ) : (
               <>
                 <li><Link href='/login' className='btn btn-sm btn-outline mx-1'>Login</Link></li>

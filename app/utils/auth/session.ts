@@ -40,7 +40,7 @@ export async function createSession(userId: string) {
     path: '/',
   });
 
-  redirect('/');
+  redirect('/portfolio');
 }
 
 export async function verifySession() {

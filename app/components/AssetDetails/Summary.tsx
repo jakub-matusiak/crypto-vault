@@ -1,6 +1,7 @@
 import type { AssetType } from '@/app/utils/types';
 
 import { formatCurrency, formatPercentage, formatNumber } from '@/app/utils/format';
+import PortfolioButton from '@/app/components/PortfolioButton';
 
 type SummaryProps = {
   assetId: string,
@@ -23,7 +24,8 @@ export default async function Price({ assetId }: SummaryProps) {
   return (
     <aside className='bg-gray-100 p-4 rounded-md mb-8'>
       <div className='flex items-center mb-2'>
-        <h1 className='text-xl md:text-2xl'><strong>{name}</strong> {symbol}</h1>
+        <PortfolioButton width={24} height={24} />
+        <h1 className='text-xl md:text-2xl ml-1'><strong>{name}</strong> {symbol}</h1>
         <div className='badge badge-md badge-neutral ml-4'>#{rank}</div>
       </div>
       <div className='flex items-center mb-4'>

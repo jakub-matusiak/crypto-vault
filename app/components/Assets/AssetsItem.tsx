@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { formatCurrency, formatPercentage, formatNumber } from '@/app/utils/format';
+import PortfolioButton from '@/app/components/PortfolioButton';
 
 type AssetsItemProps = {
   id: string,
@@ -18,6 +19,7 @@ type AssetsItemProps = {
 export default function AssetsItem({ id, rank, symbol, name, supply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr }: AssetsItemProps) {
   return (
     <tr>
+      <td><PortfolioButton width={16} height={16} /></td>
       <td>{rank}</td>
       <td><Link href={`/assets/${id}`} className='link link-hover font-semibold'>{name}</Link><br/>{symbol}</td>
       <td>{formatCurrency(priceUsd)}</td>

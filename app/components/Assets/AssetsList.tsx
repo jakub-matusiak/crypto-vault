@@ -63,7 +63,8 @@ export default function AssetsList({ initialAssets }: AssetsListProps) {
       <table className='table table-xs sm:table-sm lg:table-md'>
         <thead>
           <tr>
-            <th>Rank</th>
+            <th></th>
+            <th>#</th>
             <th>Name</th>
             <th>Price</th>
             <th className='hidden md:table-cell'>Market Cap</th>
